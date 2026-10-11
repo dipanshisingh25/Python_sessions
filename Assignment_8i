@@ -1,0 +1,28 @@
+def books(days, book_type="standard", premium=False):
+    if days <= 0:
+        fine = 0
+
+    elif book_type == "standard":
+        if days <= 5:
+            fine = days * 5
+        else:
+            fine = (5 * 5) + ((days - 5) * 10)
+
+    elif book_type == "reference":
+        fine = days * 20
+
+    else:
+        return "Invalid book type"
+
+    if premium:
+        fine = fine * 0.8
+
+    return fine
+
+
+# Test cases
+print(books(3))
+print(books(7))
+print(books(3, "reference"))
+print(books(7, "standard", True))
+print(books(3, "reference", True))
